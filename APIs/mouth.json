@@ -1,0 +1,312 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "HOS-mouth",
+    "description" : "HOS-mouth service that allow to access data from cameras via SSE stream",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "2.0-oas3"
+  },
+  "externalDocs" : {
+    "description" : "Find out more about Swagger",
+    "url" : "http://swagger.io"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/aouHOS/HOS-mouth/1.0.0"
+  }, {
+    "url" : "http://virtserver.swaggerhub.com/aouHOS/HOS-mouth/1.0.0"
+  } ],
+  "tags" : [ {
+    "name" : "observations",
+    "description" : "Provide SSE stream with OUT topic data"
+  } ],
+  "paths" : {
+    "/observations" : {
+      "post" : {
+        "tags" : [ "observations" ],
+        "summary" : "Provide SSE stream with raw data from OUT topic",
+        "requestBody" : {
+          "description" : "Data stream sent from server to the customer",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "oneOf" : [ {
+                  "$ref" : "#/components/schemas/streamSample1"
+                }, {
+                  "$ref" : "#/components/schemas/streamSample2"
+                }, {
+                  "$ref" : "#/components/schemas/streamSample3"
+                } ]
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful operation returns status code 200 (OK)."
+          },
+          "400" : {
+            "description" : "An invalid operation returns status code 400 (Bad Request).",
+            "content" : {
+              "error_message" : {
+                "examples" : {
+                  "response" : {
+                    "value" : {
+                      "reason" : "INVALID_USER_AUTHENTICATION",
+                      "message" : "Failed to authenticate principal, password was invalid"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "streamSample1" : {
+        "type" : "object",
+        "properties" : {
+          "sensors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/streamSample1_sensors"
+            }
+          }
+        }
+      },
+      "streamSample2" : {
+        "type" : "object",
+        "properties" : {
+          "sensors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/streamSample2_sensors"
+            }
+          }
+        }
+      },
+      "streamSample3" : {
+        "type" : "object",
+        "properties" : {
+          "channel" : {
+            "type" : "string",
+            "description" : "Channel ID"
+          },
+          "sensors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/streamSample3_sensors"
+            }
+          }
+        }
+      },
+      "streamSample1_observs" : {
+        "type" : "object",
+        "properties" : {
+          "objType" : {
+            "type" : "string",
+            "enum" : [ "person" ]
+          },
+          "figure" : {
+            "type" : "string",
+            "enum" : [ "upper" ]
+          },
+          "sTime" : {
+            "type" : "integer",
+            "description" : "frame time in millisecond",
+            "format" : "int32"
+          },
+          "streamDateTime" : {
+            "type" : "string",
+            "description" : "2018-03-29T10:41:15.382Z"
+          },
+          "obsDateTime" : {
+            "type" : "string",
+            "description" : "2018-03-29T10:41:15.254Z"
+          },
+          "objId" : {
+            "type" : "integer",
+            "description" : "Camera tracking id.",
+            "format" : "int32"
+          },
+          "loc" : {
+            "type" : "array",
+            "description" : "array with locations",
+            "items" : {
+              "type" : "object"
+            }
+          },
+          "serv" : {
+            "type" : "string",
+            "enum" : [ "presence", "id" ]
+          },
+          "observ" : {
+            "type" : "string",
+            "description" : "Event type"
+          },
+          "time" : {
+            "type" : "integer",
+            "description" : "Unix timestamp",
+            "format" : "int32"
+          },
+          "conf" : {
+            "type" : "number",
+            "description" : "FR service score"
+          },
+          "pic" : {
+            "type" : "string",
+            "description" : "link to image"
+          }
+        }
+      },
+      "streamSample1_sensors" : {
+        "type" : "object",
+        "properties" : {
+          "sensor" : {
+            "type" : "string",
+            "description" : "Camera name"
+          },
+          "observs" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/streamSample1_observs"
+            }
+          }
+        }
+      },
+      "streamSample2_observs" : {
+        "type" : "object",
+        "properties" : {
+          "objType" : {
+            "type" : "string",
+            "enum" : [ "person" ]
+          },
+          "sTime" : {
+            "type" : "integer",
+            "description" : "frame time in millisecond",
+            "format" : "int32"
+          },
+          "streamDateTime" : {
+            "type" : "string",
+            "description" : "2018-03-29T10:41:15.382Z"
+          },
+          "obsDateTime" : {
+            "type" : "string",
+            "description" : "2018-03-29T10:41:15.254Z"
+          },
+          "objId" : {
+            "type" : "integer",
+            "description" : "Camera tracking id.",
+            "format" : "int32"
+          },
+          "loc" : {
+            "type" : "array",
+            "description" : "array with locations",
+            "items" : {
+              "type" : "object"
+            }
+          },
+          "serv" : {
+            "type" : "string",
+            "enum" : [ "presence", "id" ]
+          },
+          "observ" : {
+            "type" : "string",
+            "description" : "Event type"
+          }
+        }
+      },
+      "streamSample2_sensors" : {
+        "type" : "object",
+        "properties" : {
+          "sensor" : {
+            "type" : "string",
+            "description" : "Camera name"
+          },
+          "observs" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/streamSample2_observs"
+            }
+          }
+        }
+      },
+      "streamSample3_observs" : {
+        "type" : "object",
+        "properties" : {
+          "objType" : {
+            "type" : "string",
+            "enum" : [ "person" ]
+          },
+          "sTime" : {
+            "type" : "integer",
+            "description" : "frame time in millisecond",
+            "format" : "int32"
+          },
+          "streamDateTime" : {
+            "type" : "string",
+            "description" : "2018-03-29T10:41:15.382Z"
+          },
+          "obsDateTime" : {
+            "type" : "string",
+            "description" : "2018-03-29T10:41:15.254Z"
+          },
+          "objId" : {
+            "type" : "integer",
+            "description" : "Camera tracking id.",
+            "format" : "int32"
+          },
+          "loc" : {
+            "type" : "array",
+            "description" : "array with locations",
+            "items" : {
+              "type" : "object"
+            }
+          },
+          "serv" : {
+            "type" : "string",
+            "enum" : [ "presence", "id" ]
+          },
+          "observ" : {
+            "type" : "string",
+            "description" : "Event type"
+          },
+          "pic" : {
+            "type" : "string",
+            "description" : "image ID"
+          },
+          "picQual" : {
+            "type" : "integer",
+            "description" : "quality of the image after FR",
+            "format" : "int32"
+          }
+        }
+      },
+      "streamSample3_sensors" : {
+        "type" : "object",
+        "properties" : {
+          "sensor" : {
+            "type" : "string",
+            "description" : "Camera name"
+          },
+          "observs" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/streamSample3_observs"
+            }
+          }
+        }
+      }
+    }
+  }
+}
