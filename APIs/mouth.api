@@ -1,0 +1,43 @@
+---
+swagger: "2.0"
+info:
+  description: "HOS-mouth service that allow to access data from cameras via SSE stream"
+  version: "2.0"
+  title: "HOS-mouth"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/aouHOS/HOS-mouth/1.0.0"
+tags:
+- name: "observations"
+  description: "Provide SSE stream with OUT topic data"
+schemes:
+- "https"
+- "http"
+paths:
+  /v2/observations:
+    post:
+      tags:
+      - "observations"
+      summary: "Provide SSE stream with raw data from OUT topic"
+      parameters: []
+      responses:
+        200:
+          description: "A successful operation returns status code 200 (OK)."
+          examples:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: "#/components/schemas/streamSample1"
+                - $ref: "#/components/schemas/streamSample2"
+                - $ref: "#/components/schemas/streamSample3"
+        400:
+          description: "An invalid operation returns status code 400 (Bad Request)."
+definitions: {}
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
