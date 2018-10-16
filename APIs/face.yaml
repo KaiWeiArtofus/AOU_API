@@ -189,12 +189,20 @@ definitions:
         example: "dataset1"
       score:
         type: "number"
+<<<<<<< Updated upstream
         example: 99.900000000000005684341886080801486968994140625
+=======
+        example: 99.9
+>>>>>>> Stashed changes
       user_info:
         type: "string"
         example: "Andrew"
     example:
+<<<<<<< Updated upstream
       score: 99.900000000000005684341886080801486968994140625
+=======
+      score: 99.9
+>>>>>>> Stashed changes
       group_id: "dataset1"
       user_info: "Andrew"
   ImageWithMetadata_metadata_observation_metadata_event_metadata:
@@ -207,7 +215,11 @@ definitions:
         example: 1
       ts:
         type: "number"
+<<<<<<< Updated upstream
         example: 12839
+=======
+        example: 12839.0
+>>>>>>> Stashed changes
     example:
       camera_name: "0"
       quality: 1
@@ -220,7 +232,11 @@ definitions:
         $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata_event_metadata"
     example:
       FR_metadata:
+<<<<<<< Updated upstream
         score: 99.900000000000005684341886080801486968994140625
+=======
+        score: 99.9
+>>>>>>> Stashed changes
         group_id: "dataset1"
         user_info: "Andrew"
       event_metadata:
@@ -244,7 +260,11 @@ definitions:
       observation_id: 1
       observation_metadata:
         FR_metadata:
+<<<<<<< Updated upstream
           score: 99.900000000000005684341886080801486968994140625
+=======
+          score: 99.9
+>>>>>>> Stashed changes
           group_id: "dataset1"
           user_info: "Andrew"
         event_metadata:
