@@ -11,7 +11,7 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "virtserver.swaggerhub.com"
-basePath: "/aouHOS/HOS-mouth/1.0.0"
+basePath: "/aouHOS/HOS-mouth/2.0.0"
 tags:
 - name: "observations"
   description: "Provide a stream of events with OUT topic data"
@@ -57,7 +57,7 @@ paths:
                       objId: 347343
                       objType: "person"
                       time: 20349820395802
-                      conf: 97.515125121
+                      conf: 97.5151251209999969660202623344957828521728515625
                       personId: 78921
                       pic: "e415c5b3-5bbe-4a8a-bae9-b0124dfab222"
                     - serv: "presence"
@@ -65,7 +65,7 @@ paths:
                       objId: 347343
                       objType: "person"
                       time: 20349820395802
-                      conf: 97.515125121
+                      conf: 97.5151251209999969660202623344957828521728515625
                       personId: 78921
                       loc:
                       - locType: "coord"
