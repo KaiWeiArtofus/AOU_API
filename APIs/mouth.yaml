@@ -31,10 +31,7 @@ paths:
           examples:
             application/json:
               schema:
-                oneOf:
-                - $ref: "#/definitions/streamSample1"
-                - $ref: "#/definitions/streamSample2"
-                - $ref: "#/definitions/streamSample3"
+              - $ref: "#/definitions/streamSample2"
               examples:
                 Person Presence:
                   channel: 80
