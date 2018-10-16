@@ -14,7 +14,7 @@ host: "virtserver.swaggerhub.com"
 basePath: "/aouHOS/HOS-mouth/1.0.0"
 tags:
 - name: "observations"
-  description: "Provide SSE stream with OUT topic data"
+  description: "Provide a stream of events with OUT topic data"
 schemes:
 - "https"
 - "http"
@@ -23,7 +23,7 @@ paths:
     post:
       tags:
       - "observations"
-      summary: "Provide SSE stream with raw data from OUT topic"
+      summary: "Provide stream of events with raw data from OUT topic"
       parameters: []
       responses:
         200:
