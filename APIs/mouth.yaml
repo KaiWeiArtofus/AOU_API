@@ -11,7 +11,7 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "virtserver.swaggerhub.com"
-basePath: "/aouHOS/HOS-mouth/2.0.0"
+basePath: "/aouHOS/HOS-mouth/1.0.0"
 tags:
 - name: "observations"
   description: "Provide a stream of events with OUT topic data"
