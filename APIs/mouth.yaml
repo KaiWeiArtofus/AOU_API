@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  description: "Mouth service that allow to access data from cameras via SSE stream"
+  description: "Mouth service that allow to access stream data from cameras"
   version: "2.0"
   title: "Mouth"
   termsOfService: "http://swagger.io/terms/"
@@ -11,7 +11,7 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "virtserver.swaggerhub.com"
-basePath: "/aouHOS/HOS-mouth/1.0.0"
+basePath: "/aouHOS/HOS-mouth/2.0.0"
 tags:
 - name: "observations"
   description: "Provide a stream of events with OUT topic data"
@@ -23,7 +23,7 @@ paths:
     post:
       tags:
       - "observations"
-      summary: "Provide stream of events with raw data from OUT topic"
+      summary: "Provide a stream of events with raw data from OUT topic"
       parameters: []
       responses:
         200:
@@ -252,6 +252,3 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/streamSample3_observs"
-externalDocs:
-  description: "Find out more about Swagger"
-  url: "http://swagger.io"
