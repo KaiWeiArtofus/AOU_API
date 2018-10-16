@@ -4,6 +4,7 @@ info:
   description: "Mouth service that allow to access stream data from cameras"
   version: "2.0"
   title: "Mouth"
+  termsOfService: "http://swagger.io/terms/"
   contact:
     email: "apiteam@swagger.io"
   license:
@@ -56,7 +57,7 @@ paths:
                       objId: 347343
                       objType: "person"
                       time: 20349820395802
-                      conf: 97.515125121
+                      conf: 97.5151251209999969660202623344957828521728515625
                       personId: 78921
                       pic: "e415c5b3-5bbe-4a8a-bae9-b0124dfab222"
                     - serv: "presence"
@@ -64,7 +65,7 @@ paths:
                       objId: 347343
                       objType: "person"
                       time: 20349820395802
-                      conf: 97.515125121
+                      conf: 97.5151251209999969660202623344957828521728515625
                       personId: 78921
                       loc:
                       - locType: "coord"
