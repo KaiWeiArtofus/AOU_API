@@ -34,54 +34,55 @@ paths:
                 - $ref: "#/definitions/streamSample1"
                 - $ref: "#/definitions/streamSample2"
                 - $ref: "#/definitions/streamSample3"
-            Person Presence:
-              channel: 80
-              sensors:
-              - sensor: 1
-                observs:
-                - serv: "presence"
-                  observ: "arrive"
-                  objId: 347343
-                  objType: "person"
-                  time: 20349820395802
-                  loc:
-                  - locType: "coord"
-                    x: 465
-                    y: 875
-                    w: 78
-                    h: 102
-                - serv: "id"
-                  observ: "pic"
-                  objId: 347343
-                  objType: "person"
-                  time: 20349820395802
-                  conf: 97.5151251209999969660202623344957828521728515625
-                  personId: 78921
-                  pic: "e415c5b3-5bbe-4a8a-bae9-b0124dfab222"
-                - serv: "presence"
-                  observ: "present"
-                  objId: 347343
-                  objType: "person"
-                  time: 20349820395802
-                  conf: 97.5151251209999969660202623344957828521728515625
-                  personId: 78921
-                  loc:
-                  - locType: "coord"
-                    x: 465
-                    y: 875
-                    w: 78
-                    h: 102
-                - serv: "presence"
-                  observ: "leave"
-                  objId: 347343
-                  objType: "person"
-                  time: 20349820395802
-                  loc:
-                  - locType: "coord"
-                    x: 465
-                    y: 875
-                    w: 78
-                    h: 102
+              examples:
+                Person Presence:
+                  channel: 80
+                  sensors:
+                  - sensor: 1
+                    observs:
+                    - serv: "presence"
+                      observ: "arrive"
+                      objId: 347343
+                      objType: "person"
+                      time: 20349820395802
+                      loc:
+                      - locType: "coord"
+                        x: 465
+                        y: 875
+                        w: 78
+                        h: 102
+                    - serv: "id"
+                      observ: "pic"
+                      objId: 347343
+                      objType: "person"
+                      time: 20349820395802
+                      conf: 97.5151251209999969660202623344957828521728515625
+                      personId: 78921
+                      pic: "e415c5b3-5bbe-4a8a-bae9-b0124dfab222"
+                    - serv: "presence"
+                      observ: "present"
+                      objId: 347343
+                      objType: "person"
+                      time: 20349820395802
+                      conf: 97.5151251209999969660202623344957828521728515625
+                      personId: 78921
+                      loc:
+                      - locType: "coord"
+                        x: 465
+                        y: 875
+                        w: 78
+                        h: 102
+                  - serv: "presence"
+                    observ: "leave"
+                    objId: 347343
+                    objType: "person"
+                    time: 20349820395802
+                    loc:
+                    - locType: "coord"
+                      x: 465
+                      y: 875
+                      w: 78
+                      h: 102
         400:
           description: "An invalid operation returns status code 400 (Bad Request)."
 definitions:
