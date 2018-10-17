@@ -49,8 +49,8 @@ paths:
       tags:
       - "Face APIs"
       summary: "Register"
-      description: "Register user by name and imagesAccepts links for images stored\
-        \ on face, or images in base64 format."
+      description: "Register user in the FR engine by name and images. Accepts links\
+        \ for images stored on face, or images in base64 format."
       operationId: "registerUser"
       produces:
       - "application/json"
@@ -137,12 +137,12 @@ definitions:
         example: "dataset1"
       score:
         type: "number"
-        example: 99.9
+        example: 99.900000000000005684341886080801486968994140625
       user_info:
         type: "string"
         example: "Andrew"
     example:
-      score: 99.9
+      score: 99.900000000000005684341886080801486968994140625
       group_id: "dataset1"
       user_info: "Andrew"
   ImageWithMetadata_metadata_observation_metadata_event_metadata:
@@ -155,7 +155,7 @@ definitions:
         example: 1
       ts:
         type: "number"
-        example: 12839.0
+        example: 12839
     example:
       camera_name: "0"
       quality: 1
@@ -168,7 +168,7 @@ definitions:
         $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata_event_metadata"
     example:
       FR_metadata:
-        score: 99.9
+        score: 99.900000000000005684341886080801486968994140625
         group_id: "dataset1"
         user_info: "Andrew"
       event_metadata:
@@ -192,7 +192,7 @@ definitions:
       observation_id: 1
       observation_metadata:
         FR_metadata:
-          score: 99.9
+          score: 99.900000000000005684341886080801486968994140625
           group_id: "dataset1"
           user_info: "Andrew"
         event_metadata:
