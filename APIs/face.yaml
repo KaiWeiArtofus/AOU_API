@@ -60,7 +60,7 @@ paths:
         description: "Name, fr_type, image ID"
         required: false
         schema:
-          $ref: "#/definitions/NameWithImageIDArray"
+          $ref: "#/definitions/NameWithImageID"
       responses:
         200:
           description: "Person registered with FR engine"
@@ -78,26 +78,17 @@ paths:
             invalidImageOrLink:
               error: "invalid image or link"
 definitions:
-  NameWithImageIDArray:
+  NameWithImageID:
     type: "object"
     properties:
-      images:
-        type: "array"
+      image:
+        type: "object"
         example:
         - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
-        - "c56c852d-d126-4eae-b37e-e1a6be288401"
-        - "38bc16e6-de9a-40d4-b7d3-d9cb06862ca6"
-        - "=base64Image..."
-        - "..."
-        items:
-          type: "string"
+        properties: {}
     example:
-      images:
+      image:
       - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
-      - "c56c852d-d126-4eae-b37e-e1a6be288401"
-      - "38bc16e6-de9a-40d4-b7d3-d9cb06862ca6"
-      - "=base64Image..."
-      - "..."
   ImageWithMetadata:
     type: "object"
     required:
@@ -137,12 +128,12 @@ definitions:
         example: "dataset1"
       score:
         type: "number"
-        example: 99.900000000000005684341886080801486968994140625
+        example: 99.9
       user_info:
         type: "string"
         example: "Andrew"
     example:
-      score: 99.900000000000005684341886080801486968994140625
+      score: 99.9
       group_id: "dataset1"
       user_info: "Andrew"
   ImageWithMetadata_metadata_observation_metadata_event_metadata:
@@ -155,7 +146,7 @@ definitions:
         example: 1
       ts:
         type: "number"
-        example: 12839
+        example: 12839.0
     example:
       camera_name: "0"
       quality: 1
@@ -168,7 +159,7 @@ definitions:
         $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata_event_metadata"
     example:
       FR_metadata:
-        score: 99.900000000000005684341886080801486968994140625
+        score: 99.9
         group_id: "dataset1"
         user_info: "Andrew"
       event_metadata:
@@ -192,7 +183,7 @@ definitions:
       observation_id: 1
       observation_metadata:
         FR_metadata:
-          score: 99.900000000000005684341886080801486968994140625
+          score: 99.9
           group_id: "dataset1"
           user_info: "Andrew"
         event_metadata:
