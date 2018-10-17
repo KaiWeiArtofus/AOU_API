@@ -19,7 +19,7 @@ paths:
     get:
       tags:
       - "Face APIs"
-      summary: "Get base64-encoded image by id previously stored on face."
+      summary: "Get image by id"
       operationId: "getUser"
       produces:
       - "application/json"
@@ -29,12 +29,6 @@ paths:
         description: "id of an image"
         required: true
         type: "string"
-      - name: "authorization"
-        in: "header"
-        description: "JWT token for authorization"
-        required: true
-        type: "string"
-        default: "Bearer here.goes.token"
       responses:
         200:
           description: "Return image"
@@ -49,22 +43,11 @@ paths:
               error: "Expecting 'id' in properties"
           schema:
             $ref: "#/definitions/inline_response_400"
-        401:
-          description: "Unauthorized"
-          examples:
-            headerMissing:
-              error: "Authorization header missing"
-            cantConnectNOS:
-              error: "Unauthorized - Unable to connect to NOS"
-            NOSUnauthorized:
-              error: "Unauthorized"
-          schema:
-            $ref: "#/definitions/unauthorized"
   /api/v2/registrations:
     post:
       tags:
       - "Face APIs"
-      summary: "Register user by name and images or image links."
+      summary: "Register user by name and images"
       description: "Accepts links for images stored on face, or images in base64 format."
       operationId: "registerUser"
       produces:
@@ -76,15 +59,9 @@ paths:
         required: false
         schema:
           $ref: "#/definitions/NameWithImageIDArray"
-      - name: "authorization"
-        in: "header"
-        description: "JWT token for authorization"
-        required: true
-        type: "string"
-        default: "Bearer here.goes.token"
       responses:
         200:
-          description: "Person registered with BaiduAPI"
+          description: "Person registered with FR engine"
           schema:
             $ref: "#/definitions/inline_response_200"
         400:
@@ -98,17 +75,6 @@ paths:
               error: "images must be a list"
             invalidImageOrLink:
               error: "invalid image or link"
-        401:
-          description: "Unauthorized"
-          examples:
-            headerMissing:
-              error: "Authorization header missing"
-            cantConnectNOS:
-              error: "Unauthorized - Unable to connect to NOS"
-            NOSUnauthorized:
-              error: "Unauthorized"
-          schema:
-            $ref: "#/definitions/unauthorized"
 definitions:
   NameWithImageIDArray:
     type: "object"
@@ -130,26 +96,6 @@ definitions:
       - "38bc16e6-de9a-40d4-b7d3-d9cb06862ca6"
       - "=base64Image..."
       - "..."
-  invalidJSON:
-    type: "object"
-    required:
-    - "error"
-    properties:
-      error:
-        type: "string"
-  IdOfImage:
-    type: "object"
-    required:
-    - "id"
-    properties:
-      id:
-        type: "string"
-        format: "uuid"
-  unauthorized:
-    type: "object"
-    properties:
-      error:
-        type: "string"
   ImageWithMetadata:
     type: "object"
     required:
