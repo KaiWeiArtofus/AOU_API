@@ -18,7 +18,7 @@ paths:
   /api/v2/images/{id}:
     get:
       tags:
-      - "developers"
+      - "Face APIs"
       summary: "Get base64-encoded image by id previously stored on face."
       operationId: "getUser"
       produces:
@@ -63,7 +63,7 @@ paths:
   /api/v2/registrations:
     post:
       tags:
-      - "developers"
+      - "Face APIs"
       summary: "Register user by name and images or image links."
       description: "Accepts links for images stored on face, or images in base64 format."
       operationId: "registerUser"
