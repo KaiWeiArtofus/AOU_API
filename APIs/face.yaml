@@ -82,10 +82,8 @@ definitions:
     type: "object"
     properties:
       image:
-        type: "object"
-        example:
-        - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
-        properties: {}
+        type: "string"
+        example: ""
     example:
       image:
       - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
