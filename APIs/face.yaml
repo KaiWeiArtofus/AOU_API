@@ -19,7 +19,8 @@ paths:
     get:
       tags:
       - "Face APIs"
-      summary: "Get image by id"
+      summary: "Get image"
+      description: "Get captured thumbnail by id received from the events"
       operationId: "getUser"
       produces:
       - "application/json"
@@ -47,8 +48,9 @@ paths:
     post:
       tags:
       - "Face APIs"
-      summary: "Register user by name and images"
-      description: "Accepts links for images stored on face, or images in base64 format."
+      summary: "Register"
+      description: "Register user by name and imagesAccepts links for images stored\
+        \ on face, or images in base64 format."
       operationId: "registerUser"
       produces:
       - "application/json"
