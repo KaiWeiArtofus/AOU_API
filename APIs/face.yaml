@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: "Face APIs"
-  version: "2.0"
+  version: "1.0"
   title: "Face API"
   license:
     name: "Apache 2.0"
@@ -15,7 +15,7 @@ tags:
 schemes:
 - "https"
 paths:
-  /api/v2/images/{id}:
+  /api/v1/images/{id}:
     get:
       tags:
       - "Face APIs"
@@ -44,7 +44,7 @@ paths:
               error: "Expecting 'id' in properties"
           schema:
             $ref: "#/definitions/inline_response_400"
-  /api/v2/registrations:
+  /api/v1/registrations:
     post:
       tags:
       - "Face APIs"
@@ -56,8 +56,8 @@ paths:
       - "application/json"
       parameters:
       - in: "body"
-        name: "NameWithImageIDArray"
-        description: "Name, fr_type, images array"
+        name: "NameWithImageID"
+        description: "Name, fr_type, image ID"
         required: false
         schema:
           $ref: "#/definitions/NameWithImageIDArray"
