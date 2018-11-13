@@ -7,7 +7,7 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "host.host.host:8080"
+host: "sample.artofus.com:8080"
 basePath: "/"
 tags:
 - name: "Face APIs"
@@ -30,6 +30,12 @@ paths:
         description: "id of an image"
         required: true
         type: "string"
+      - name: "authorization"
+        in: "header"
+        description: "JWT token for authorization"
+        required: true
+        type: "string"
+        default: "Bearer here.goes.token"
       responses:
         200:
           description: "Return image"
@@ -44,7 +50,7 @@ paths:
               error: "Expecting 'id' in properties"
           schema:
             $ref: "#/definitions/inline_response_400"
-  /api/v1/registrations:
+  /api/v1/registrations/:
     post:
       tags:
       - "Face APIs"
@@ -61,6 +67,12 @@ paths:
         required: false
         schema:
           $ref: "#/definitions/NameWithImageID"
+      - name: "authorization"
+        in: "header"
+        description: "JWT token for authorization"
+        required: true
+        type: "string"
+        default: "Bearer here.goes.token"
       responses:
         200:
           description: "Person registered with FR engine"
