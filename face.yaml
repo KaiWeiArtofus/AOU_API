@@ -41,7 +41,7 @@ paths:
           description: "Return image"
           schema:
             $ref: "#/definitions/ImageWithMetadata"
-          examples:
+          example:
             $ref: "#/definitions/ImagesResponseExample"
         400:
           description: "Bad Request"
