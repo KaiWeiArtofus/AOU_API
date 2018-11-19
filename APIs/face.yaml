@@ -39,6 +39,8 @@ paths:
       responses:
         200:
           description: "Return image"
+          examples:
+            example: "/9j..."
           schema:
             $ref: "#/definitions/ImageWithMetadata"
         400:
@@ -99,8 +101,6 @@ definitions:
     example:
       image:
       - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
-  ImagesResponseExample:
-    example: "/9j..."
   ImageWithMetadata:
     type: "object"
     required:
