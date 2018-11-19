@@ -41,7 +41,7 @@ paths:
           description: "Return image"
           schema:
             $ref: "#/definitions/ImageWithMetadata"
-          examples:
+          example:
             $ref: "#/definitions/ImagesResponseExample"
         400:
           description: "Bad Request"
@@ -53,7 +53,7 @@ paths:
             idMissing:
               error: "Expecting 'id' in properties"
   /api/v1/registrations/:
-    get:
+    post:
       tags:
       - "Face APIs"
       summary: "Register"
