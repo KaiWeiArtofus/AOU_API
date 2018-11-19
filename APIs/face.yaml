@@ -53,7 +53,7 @@ paths:
           schema:
             $ref: "#/definitions/inline_response_400"
   /api/v1/registrations/:
-    post:
+    get:
       tags:
       - "Face APIs"
       summary: "Register"
