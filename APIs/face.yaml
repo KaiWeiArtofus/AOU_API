@@ -42,8 +42,6 @@ paths:
           examples:
             success:
               example: "/9j..."
-          schema:
-            $ref: "#/definitions/ImageWithMetadata"
         400:
           description: "Bad Request"
           examples:
