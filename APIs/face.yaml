@@ -45,10 +45,8 @@ paths:
         400:
           description: "Bad Request"
           examples:
-            noSuchKeyError:
-              error: "NoSuchKeyError"
-            idMissing:
-              error: "Expecting 'id' in properties"
+            no such key error: "NoSuchKeyError"
+            id missing error: "Expecting 'id' in properties"
   /api/v1/registrations/:
     post:
       tags:
