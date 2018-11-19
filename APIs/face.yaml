@@ -49,8 +49,7 @@ paths:
               error: "NoSuchKeyError"
             idMissing:
               error: "Expecting 'id' in properties"
-          schema:
-            $ref: "#/definitions/inline_response_400"
+          schema: {}
   /api/v1/registrations/:
     post:
       tags:
@@ -100,20 +99,6 @@ definitions:
     example:
       image:
       - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
-  ImageWithMetadata:
-    type: "object"
-    required:
-    - "image"
-    - "metadata"
-    properties:
-      image:
-        type: "string"
-        format: "base64"
-        example: "/9j..."
-      metadata:
-        $ref: "#/definitions/ImageWithMetadata_metadata"
-    example:
-      image: "/9j..."
   inline_response_400:
     properties:
       error:
@@ -139,12 +124,12 @@ definitions:
         example: "dataset1"
       score:
         type: "number"
-        example: 99.900000000000005684341886080801486968994140625
+        example: 99.9
       user_info:
         type: "string"
         example: "Andrew"
     example:
-      score: 99.900000000000005684341886080801486968994140625
+      score: 99.9
       group_id: "dataset1"
       user_info: "Andrew"
   ImageWithMetadata_metadata_observation_metadata_event_metadata:
@@ -157,7 +142,7 @@ definitions:
         example: 1
       ts:
         type: "number"
-        example: 12839
+        example: 12839.0
     example:
       camera_name: "0"
       quality: 1
@@ -170,7 +155,7 @@ definitions:
         $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata_event_metadata"
     example:
       FR_metadata:
-        score: 99.900000000000005684341886080801486968994140625
+        score: 99.9
         group_id: "dataset1"
         user_info: "Andrew"
       event_metadata:
@@ -194,7 +179,7 @@ definitions:
       observation_id: 1
       observation_metadata:
         FR_metadata:
-          score: 99.900000000000005684341886080801486968994140625
+          score: 99.9
           group_id: "dataset1"
           user_info: "Andrew"
         event_metadata:
