@@ -53,7 +53,7 @@ paths:
             idMissing:
               error: "Expecting 'id' in properties"
   /api/v1/registrations/:
-    post:
+    get:
       tags:
       - "Face APIs"
       summary: "Register"
