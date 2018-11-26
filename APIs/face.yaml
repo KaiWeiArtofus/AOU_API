@@ -74,7 +74,7 @@ paths:
       - "application/json"
       parameters:
       - in: "body"
-        name: "NameWithImageID"
+        name: "image"
         description: "Name, fr_type, image ID"
         required: false
         schema:
