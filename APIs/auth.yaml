@@ -4,7 +4,7 @@ info:
   description: "This **API** is intended to be used as an Internal Backend for applications\
     \ which might need an authentication mechanism. It defines an interface API against\
     \ a **Vault secrets management platform**."
-  version: "1.0.0"
+  version: "1.0"
   title: "H2 Auth API Service"
 host: "vault.cloud.artofushos.com:8443"
 basePath: "/api/v1"
