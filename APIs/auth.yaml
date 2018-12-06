@@ -70,139 +70,7 @@ paths:
                 items:
                   type: "string"
                   example: "invalid username or password"
-  /auth/token/lookup-self:
-    get:
-      summary: "Returns information about the current client token."
-      description: "Returns information about the current client token in the header."
-      produces:
-      - "application/json"
-      parameters:
-      - name: "X-Hos-Token"
-        in: "header"
-        description: "The client Token to query."
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "OK"
-          schema:
-            type: "object"
-            properties:
-              request_id:
-                type: "string"
-                example: "bea017b2-aedd-67ab-77ab-41a520d1748a"
-              lease_id:
-                type: "string"
-                example: ""
-              renewable:
-                type: "boolean"
-                example: false
-              lease_duration:
-                type: "integer"
-                example: 0
-              data:
-                $ref: "#/definitions/inline_response_200_1_data"
-              wrap_info:
-                type: "string"
-                example: "null"
-              warnings:
-                type: "string"
-                example: "null"
-              auth:
-                type: "string"
-                example: "null"
-        400:
-          description: "Bad request"
-          schema:
-            type: "object"
-            properties:
-              errors:
-                type: "array"
-                items:
-                  type: "string"
-                  example: "missing client token"
-        403:
-          description: "Permission denied or invalid/ revoked Token"
-          schema:
-            type: "object"
-            properties:
-              errors:
-                type: "array"
-                items:
-                  type: "string"
-                  example: "permission denied"
 definitions:
-  inline_response_200_1_data:
-    properties:
-      accessor:
-        type: "string"
-        example: "61f50a53-41eb-fd3c-d80f-1ad66025dfb6"
-      bound_cidrs:
-        type: "string"
-        example: ""
-      creation_time:
-        type: "integer"
-        example: 1535446236
-      creation_ttl:
-        type: "integer"
-        example: 86400
-      display_name:
-        type: "string"
-        example: "userpass-test"
-      entity_id:
-        type: "string"
-        example: "61d3a52a-d431-3feb-0e81-ff5ef9cab43f"
-      expire_time:
-        type: "string"
-        example: "2018-08-29T08:50:36.843075915Z"
-      explicit_max_ttl:
-        type: "integer"
-        example: 0
-      id:
-        type: "string"
-        example: "78e552d9-6389-3cfb-4220-39f537b8f96d"
-      issue_time:
-        type: "string"
-        example: "2018-08-28T08:50:36.843075037Z"
-      meta:
-        $ref: "#/definitions/inline_response_200_auth_metadata"
-      num_uses:
-        type: "integer"
-        example: 0
-      orphan:
-        type: "boolean"
-        example: true
-      path:
-        type: "string"
-        example: "auth/userpass/login/test"
-      policies:
-        type: "string"
-        example: ""
-      renewable:
-        type: "boolean"
-        example: true
-      ttl:
-        type: "integer"
-        example: 86360
-    example:
-      creation_time: 1535446236
-      creation_ttl: 86400
-      bound_cidrs: ""
-      accessor: "61f50a53-41eb-fd3c-d80f-1ad66025dfb6"
-      policies: ""
-      expire_time: "2018-08-29T08:50:36.843075915Z"
-      num_uses: 0
-      display_name: "userpass-test"
-      entity_id: "61d3a52a-d431-3feb-0e81-ff5ef9cab43f"
-      orphan: true
-      ttl: 86360
-      explicit_max_ttl: 0
-      path: "auth/userpass/login/test"
-      meta:
-        username: "test"
-      renewable: true
-      id: "78e552d9-6389-3cfb-4220-39f537b8f96d"
-      issue_time: "2018-08-28T08:50:36.843075037Z"
   password:
     type: "object"
     required:
@@ -218,58 +86,6 @@ definitions:
         example: "test"
     example:
       username: "test"
-  inline_response_200_1:
-    properties:
-      request_id:
-        type: "string"
-        example: "bea017b2-aedd-67ab-77ab-41a520d1748a"
-      lease_id:
-        type: "string"
-        example: ""
-      renewable:
-        type: "boolean"
-        example: false
-      lease_duration:
-        type: "integer"
-        example: 0
-      data:
-        $ref: "#/definitions/inline_response_200_1_data"
-      wrap_info:
-        type: "string"
-        example: "null"
-      warnings:
-        type: "string"
-        example: "null"
-      auth:
-        type: "string"
-        example: "null"
-    example:
-      data:
-        creation_time: 1535446236
-        creation_ttl: 86400
-        bound_cidrs: ""
-        accessor: "61f50a53-41eb-fd3c-d80f-1ad66025dfb6"
-        policies: ""
-        expire_time: "2018-08-29T08:50:36.843075915Z"
-        num_uses: 0
-        display_name: "userpass-test"
-        entity_id: "61d3a52a-d431-3feb-0e81-ff5ef9cab43f"
-        orphan: true
-        ttl: 86360
-        explicit_max_ttl: 0
-        path: "auth/userpass/login/test"
-        meta:
-          username: "test"
-        renewable: true
-        id: "78e552d9-6389-3cfb-4220-39f537b8f96d"
-        issue_time: "2018-08-28T08:50:36.843075037Z"
-      auth: "null"
-      renewable: false
-      warnings: "null"
-      lease_duration: 0
-      request_id: "bea017b2-aedd-67ab-77ab-41a520d1748a"
-      lease_id: ""
-      wrap_info: "null"
   inline_response_200:
     properties:
       request_id:
@@ -362,13 +178,6 @@ definitions:
       - "default"
       lease_duration: 86400
       entity_id: "61d3a52a-d431-3feb-0e81-ff5ef9cab43f"
-  inline_response_403:
-    properties:
-      errors:
-        type: "array"
-        items:
-          type: "string"
-          example: "permission denied"
   inline_response_400:
     properties:
       errors:
@@ -376,10 +185,3 @@ definitions:
         items:
           type: "string"
           example: "invalid username or password"
-  inline_response_400_1:
-    properties:
-      errors:
-        type: "array"
-        items:
-          type: "string"
-          example: "missing client token"
