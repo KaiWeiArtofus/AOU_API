@@ -35,7 +35,7 @@ paths:
         description: "token for authorization"
         required: true
         type: "string"
-        default: "Bearer here.goes.token"
+        default: "here goes token"
       responses:
         200:
           description: "Return image"
