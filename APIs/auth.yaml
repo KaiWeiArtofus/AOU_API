@@ -5,7 +5,7 @@ info:
     \ which might need an authentication mechanism. It defines an interface API against\
     \ a **Vault secrets management platform**."
   version: "1.0"
-  title: "H2 Auth API Service"
+  title: "Authentication API Service"
 host: "vault.cloud.artofushos.com:8443"
 basePath: "/api/v1"
 schemes:
