@@ -81,10 +81,10 @@ paths:
           $ref: "#/definitions/NameWithImageID"
       - name: "Token"
         in: "header"
-        description: "JWT token for authorization"
+        description: "token for authorization"
         required: true
         type: "string"
-        default: "Bearer here.goes.token"
+        default: "here.goes.token"
       responses:
         200:
           description: "Person registered with FR engine"
