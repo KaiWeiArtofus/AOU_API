@@ -13,6 +13,8 @@ schemes:
 paths:
   /auth/login/{username}:
     post:
+      tags:
+      - "Auth APIs"
       summary: "Login with the username and password."
       description: "Login with the **username** and **password**."
       consumes:
