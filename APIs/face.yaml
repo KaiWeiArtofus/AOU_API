@@ -1,178 +1,120 @@
 ---
 swagger: "2.0"
 info:
-  description: "Face APIs"
+  description: Face APIs
   version: "1.0"
-  title: "Face API"
+  title: Face API
   license:
-    name: "Apache 2.0"
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "sample.artofus.com:8080"
-basePath: "/"
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: sample.artofus.com:8080
+basePath: /
 tags:
-- name: "Face APIs"
-  description: "Operations available to regular developers"
+- name: Face APIs
+  description: Operations available to regular developers
 schemes:
-- "https"
+- https
 paths:
   /api/v1/images/{id}:
     get:
       tags:
-      - "Face APIs"
-      summary: "Get image"
-      description: "Get captured thumbnail by id received from the events"
-      operationId: "getUser"
+      - Face APIs
+      summary: Get image
+      description: Get captured thumbnail by id received from the events
+      operationId: getUser
       produces:
-      - "application/json"
+      - application/json
       parameters:
-      - name: "id"
-        in: "path"
-        description: "id of an image"
+      - name: id
+        in: path
+        description: id of an image
         required: true
-        type: "string"
-      - name: "Token"
-        in: "header"
-        description: "token for authorization"
+        type: string
+      - name: Token
+        in: header
+        description: token for authorization
         required: true
-        type: "string"
-        default: "here goes token"
+        type: string
+        default: here goes token
       responses:
         200:
-          description: "Return image"
+          description: Return image
           examples:
             success:
-              image: "/9j..."
+              image: /9j...
         400:
-          description: "Bad Request"
+          description: Bad Request
           examples:
             failure:
-              error_code_1: "EXTERNAL_RESOURCE_UNAVAILABLE_ERROR"
-              error_1: "StorageError No such key."
-              error_2: "No such token 'abcdef' in Cassandra"
+              error_code_1: EXTERNAL_RESOURCE_UNAVAILABLE_ERROR
+              error_1: StorageError No such key.
+              error_2: No such token 'abcdef' in Cassandra
         401:
-          description: "Token Error"
+          description: Token Error
           examples:
             failure:
-              error_code: "MESSAGE_PROCESSING_ERROR"
-              error_1: "Token header missing."
-              error_2: "Token verification failed."
+              error_code: MESSAGE_PROCESSING_ERROR
+              error_1: Token header missing.
+              error_2: Token verification failed.
         500:
-          description: "Auth Error"
+          description: Auth Error
           examples:
             failure:
-              error_code: "EXTERNAL_RESOURCE_UNAVAILABLE_ERROR"
-              error: "Cant get customer_id, exception: 'exception'"
-  /api/v1/registrations/:
-    post:
-      tags:
-      - "Face APIs"
-      summary: "Register"
-      description: "Register person in the FR engine. Accepts both IDs for images\
-        \ stored, or images in base64 format."
-      operationId: "registerUser"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "image"
-        description: "Name, fr_type, image ID"
-        required: false
-        schema:
-          $ref: "#/definitions/NameWithImageID"
-      - name: "Token"
-        in: "header"
-        description: "token for authorization"
-        required: true
-        type: "string"
-        default: "here.goes.token"
-      responses:
-        200:
-          description: "Person registered with FR engine"
-          examples:
-            success:
-              registered: "ok"
-              id: "cbdcf059_2f52_4636_b79a_c79aa46590f0"
-        400:
-          description: "Bad Request"
-          examples:
-            failure:
-              error_code_1: "MESSAGE_PROCESSING_ERROR"
-              error_1: "All image registrations failed on $fr_service."
-              error_2: "Can not decode JSON. Json is invalid."
-              error_3: "'images' field in JSON must be a list."
-              error_4: "'images' field is missing in JSON."
-              error_5: "Invalid images or links."
-              error_6: "Some image registrations failed on $fr_service"
-              error_code_2: "EXTERNAL_RESOURCE_UNAVAILABLE_ERROR"
-              error_7: "No such token 'abcdef' in Cassandra"
-        401:
-          description: "Token Error"
-          examples:
-            failure:
-              error_code: "MESSAGE_PROCESSING_ERROR"
-              error_1: "Token header missing."
-              error_2: "Token verification failed."
-        500:
-          description: "Auth Error"
-          examples:
-            failure:
-              error_code: "EXTERNAL_RESOURCE_UNAVAILABLE_ERROR"
-              error_1: "Cant get customer_id, exception: 'exception'"
-              error_2: "No such customer_Id '{}' in Cassandra"
-              error_3: "Cant get FR_Account info, exception '{}'"
+              error_code: EXTERNAL_RESOURCE_UNAVAILABLE_ERROR
+              error: 'Cant get customer_id, exception: ''exception'''
 definitions:
   NameWithImageID:
-    type: "object"
+    type: object
     properties:
       image:
-        type: "string"
+        type: string
         example: ""
     example:
       image:
-      - "21319a6e-b323-47b8-bd23-8b54ad7977f0"
+      - 21319a6e-b323-47b8-bd23-8b54ad7977f0
   inline_response_400:
     properties:
       error:
-        type: "string"
+        type: string
   inline_response_200:
     properties:
       name:
-        type: "string"
-        example: "Andrew"
+        type: string
+        example: Andrew
       written:
-        type: "string"
-        example: "ok"
+        type: string
+        example: ok
       id:
-        type: "string"
-        example: "cbdcf059_2f52_4636_b79a_c79aa46590f0"
+        type: string
+        example: cbdcf059_2f52_4636_b79a_c79aa46590f0
     example:
-      written: "ok"
-      id: "cbdcf059_2f52_4636_b79a_c79aa46590f0"
+      written: ok
+      id: cbdcf059_2f52_4636_b79a_c79aa46590f0
   ImageWithMetadata_metadata_observation_metadata_FR_metadata:
     properties:
       group_id:
-        type: "string"
-        example: "dataset1"
+        type: string
+        example: dataset1
       score:
-        type: "number"
+        type: number
         example: 99.9
       user_info:
-        type: "string"
-        example: "Andrew"
+        type: string
+        example: Andrew
     example:
       score: 99.9
-      group_id: "dataset1"
-      user_info: "Andrew"
+      group_id: dataset1
+      user_info: Andrew
   ImageWithMetadata_metadata_observation_metadata_event_metadata:
     properties:
       camera_name:
-        type: "string"
+        type: string
         example: "0"
       quality:
-        type: "integer"
+        type: integer
         example: 1
       ts:
-        type: "number"
+        type: number
         example: 12839.0
     example:
       camera_name: "0"
@@ -181,14 +123,14 @@ definitions:
   ImageWithMetadata_metadata_observation_metadata:
     properties:
       FR_metadata:
-        $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata_FR_metadata"
+        $ref: '#/definitions/ImageWithMetadata_metadata_observation_metadata_FR_metadata'
       event_metadata:
-        $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata_event_metadata"
+        $ref: '#/definitions/ImageWithMetadata_metadata_observation_metadata_event_metadata'
     example:
       FR_metadata:
         score: 99.9
-        group_id: "dataset1"
-        user_info: "Andrew"
+        group_id: dataset1
+        user_info: Andrew
       event_metadata:
         camera_name: "0"
         quality: 1
@@ -196,26 +138,26 @@ definitions:
   ImageWithMetadata_metadata:
     properties:
       observation_id:
-        type: "integer"
+        type: integer
         example: 1
       observation_metadata:
-        $ref: "#/definitions/ImageWithMetadata_metadata_observation_metadata"
+        $ref: '#/definitions/ImageWithMetadata_metadata_observation_metadata'
       observation_type:
-        type: "string"
-        example: "thumbnail_captured"
+        type: string
+        example: thumbnail_captured
       person_id:
-        type: "string"
-        example: "cbdcf059_2f52_4636_b79a_c79aa46590f0"
+        type: string
+        example: cbdcf059_2f52_4636_b79a_c79aa46590f0
     example:
       observation_id: 1
       observation_metadata:
         FR_metadata:
           score: 99.9
-          group_id: "dataset1"
-          user_info: "Andrew"
+          group_id: dataset1
+          user_info: Andrew
         event_metadata:
           camera_name: "0"
           quality: 1
           ts: 12839
-      observation_type: "thumbnail_captured"
-      person_id: "cbdcf059_2f52_4636_b79a_c79aa46590f0"
+      observation_type: thumbnail_captured
+      person_id: cbdcf059_2f52_4636_b79a_c79aa46590f0
